@@ -8,9 +8,9 @@ describe("Intern", () => {
             const id = 1;
             const email = "moostvogels@example.com";
             const school = "Fontys"
-            const role = "Employee";
+            const role = "Intern";
 
-            const obj = new Employee(name, id, email, school);
+            const obj = new Intern(name, id, email, school);
 
             expect(obj.name).toEqual(name);
             expect(obj.id).toEqual(id);
