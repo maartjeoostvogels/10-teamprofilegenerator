@@ -1,0 +1,25 @@
+{
+  "name": "10-teamprofilegenerator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Object Oriented Programming",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/maartjeoostvogels/10-teamprofilegenerator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maartjeoostvogels/10-teamprofilegenerator/issues"
+  },
+  "homepage": "https://github.com/maartjeoostvogels/10-teamprofilegenerator#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.2.4"
+  }
+}
