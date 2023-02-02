@@ -4,7 +4,7 @@ describe("Employee", () => {
     describe("Initialisation", () => {
         it("Test Constructor", () => {
 
-            const name = Maartje;
+            const name = "Maartje";
             const id = 1;
             const email = "moostvogels@example.com";
             const role = "Employee";

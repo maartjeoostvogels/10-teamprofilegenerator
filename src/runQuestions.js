@@ -12,23 +12,14 @@ const interns = [];
 
 const Questions = require("./questions");
 
-const runManagerQuestions = () => {
-    inquirer
-        .prompt(Questions.ManagerQuestions)
-        .then((response) => {
-            const manager = new Manager(response.name, response.id, response.email, response.officeNumber)
-            managers.push(manager);
-            runInitQuestions();
-        })
-}
-
 const runEngineerQuestions = () => {
     inquirer
         .prompt(Questions.EngineerQuestions)
         .then((response) => {
             const engineer = new Engineer(response.name, response.id, response.email, response.github)
             engineers.push(engineer);
-            runInitQuestions();
+            
+            runNextActionQuestions();
         })
 }
 
@@ -38,25 +29,23 @@ const runInternQuestions = () => {
         .then((response) => {
             const intern = new Intern(response.name, response.id, response.email, response.school)
             interns.push(intern);
-            runInitQuestions();
+
+            runNextActionQuestions();
         })
 }
 
-
-const runInitQuestions = () => {
-    inquirer.prompt(Questions.MainQuestions)
-        .then((response) => {
-            switch (response.addteammember) {
-                case 'Add Manager':
-                    runManagerQuestions()
-                    break;
+const runNextActionQuestions = () => {
+    inquirer
+        .prompt(Questions.NextActionQuestions)
+        .then((response) => {    
+            switch (response.nextAction) {
                 case 'Add Engineer':
                     runEngineerQuestions()
                     break;
                 case 'Add Intern':
                     runInternQuestions()
                     break;
-                case 'Finish':
+                case 'Finish building team':
                     console.log("Finished")
 
                     buildPage(managers, engineers, interns);
@@ -64,9 +53,19 @@ const runInitQuestions = () => {
                 default:
                     console.log('default')
                     break;
-
             }
-        })
-}
+        });
+};
 
-module.exports = runInitQuestions;
+const runQuestions = () => {
+    inquirer
+        .prompt(Questions.ManagerQuestions)
+        .then((response) => {
+            const manager = new Manager(response.name, response.id, response.email, response.officeNumber)
+            managers.push(manager);
+
+            runNextActionQuestions();
+        });
+};
+
+module.exports = runQuestions;

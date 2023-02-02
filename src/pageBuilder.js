@@ -10,39 +10,33 @@ const buildPage = (managers, engineers, interns) => {
         let managerHtml = "";
         managers.forEach(manager => {
             managerHtml += `<div class="card">
-            <div class= "card-header">
+
                 <h2>${manager.name}</h2>
                 <p>Employee Id: ${manager.id}</p>
-                <p>E-mail: ${manager.email}</p>
+                <p>E-mail: <a href="mailto:${manager.email}">${manager.email}</a></p>
                 <p>Office Number: ${manager.officeNumber}</p>
-            </div>
         </div>`;
         })
 
         let engineerHtml = "";
         engineers.forEach(engineer => {
             engineerHtml += `<div class="card">
-            <div class= "card-header">
                 <h2>${engineer.name}</h2>
                 <p>Employee Id: ${engineer.id}</p>
-                <p>E-mail: ${engineer.email}</p>
-                <p>Github: ${engineer.github}</p>
-            </div>
+                <p>E-mail: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
+                <p>Github: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></p>
         </div>`;
         })
-
         let internHtml = "";
         interns.forEach(intern => {
             internHtml += `<div class="card">
-            <div class= "card-header">
+
                 <h2>${intern.name}</h2>
                 <p>Employee Id: ${intern.id}</p>
-                <p>E-mail: ${intern.email}</p>
+                <p>E-mail: <a href="mailto:${intern.email}">${intern.email}</a></p>
                 <p>School: ${intern.school}</p>
-            </div>
         </div>`;
         })
-
         html = html.replace("<!--Manager-->", managerHtml);
         html = html.replace("<!--Engineers-->", engineerHtml);
         html = html.replace("<!--Interns-->", internHtml);

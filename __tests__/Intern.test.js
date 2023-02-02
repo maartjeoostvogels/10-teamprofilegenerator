@@ -1,13 +1,13 @@
-const Intern = require("../lib/employee");
+const Intern = require("../lib/intern");
 
 describe("Intern", () => {
     describe("Initialisation", () => {
         it("Test Constructor", () => {
 
-            const name = Maartje;
+            const name = "Maartje";
             const id = 1;
             const email = "moostvogels@example.com";
-            const school = "Fontys"
+            const school = "Fontys";
             const role = "Intern";
 
             const obj = new Intern(name, id, email, school);
